@@ -34,6 +34,9 @@ class GoogleJavaFormatProvider
     const executablePath = vscode.workspace
       .getConfiguration("google-java-format")
       .get<string>("executable-path");
+    const extraArgs = vscode.workspace
+      .getConfiguration("google-java-format")
+      .get<string>("extra-args")
 
     if (executablePath === undefined) {
       vscode.window.showErrorMessage(
@@ -41,24 +44,27 @@ class GoogleJavaFormatProvider
       );
       return Promise.resolve(null);
     }
+    let args: Array<string> = [];
+    if (extraArgs) {
+      args = extraArgs.split(" ");
+    }
 
     return new Promise((resolve, reject) => {
       let stdout = "";
       let stderr = "";
-      let child = cp.spawn(executablePath, [
-        "--lines",
-        `${range.start.line}:${range.end.line}`,
-        document.fileName,
-      ]);
-      child.stdout.on("data", (chunk) => (stdout += chunk));
-      child.stderr.on("data", (chunk) => (stderr += chunk));
-      child.on("error", (err) => {
+      args.push("--lines");
+      args.push(`${range.start.line}:${range.end.line}`);
+      args.push(document.fileName);
+      let child = cp.spawn(executablePath, args);
+      child.stdout.on("data", (chunk: string) => (stdout += chunk));
+      child.stderr.on("data", (chunk: string) => (stderr += chunk));
+      child.on("error", (err: any) => {
         vscode.window.showErrorMessage(
           `Could not run google-java-format: ${err}`
         );
         return reject(err);
       });
-      child.on("close", (retcode) => {
+      child.on("close", (retcode: number) => {
         if (stderr.length > 0) {
           outputChannel.show();
           outputChannel.clear();

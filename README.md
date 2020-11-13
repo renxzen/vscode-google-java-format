@@ -1,5 +1,7 @@
 # google-java-format
 
+**FORK FROM ILKKA's REPO: https://github.com/ilkka/vscode-google-java-format**
+
 This is yet another VS Code extension for running the google-java-format tool as a Java formatter. I could not make any of the others work for me, and I did not want to install an extension that will just run commands from random repositories on save. So, I wrote this, a super simple formatter provider that will just run the google-java-format script from e.g. Homebrew.
 
 It should work as a formatter for only sections of files as well.
@@ -12,7 +14,7 @@ Install google-java-format from e.g. Homebrew and set it as your Java formatter 
 
 ```json
 "[java]": {
-  "editor.defaultFormatter": "ilkka.google-java-format",
+  "editor.defaultFormatter": "serikb.google-java-format",
 }
 ```
 
@@ -25,6 +27,10 @@ Use the setting "google-java-format.executable-path" to set the path to the goog
 Nothing right now.
 
 ## Release Notes
+
+### 1.0.1
+
+Added ability to pass extra args via "google-java-format.extra-args"
 
 ### 1.0.0
 
