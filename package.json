@@ -3,7 +3,7 @@
   "displayName": "google-java-format",
   "description": "Yet another simple google-java-format runner",
   "publisher": "serikb",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/serikb/vscode-google-java-format"
