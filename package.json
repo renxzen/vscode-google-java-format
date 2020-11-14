@@ -25,11 +25,6 @@
     "configuration": {
       "title": "Google-java-format configuration",
       "properties": {
-        "google-java-format.executable-path": {
-          "type": "string",
-          "default": "/usr/local/bin/google-java-format",
-          "description": "Path to google-java-format script"
-        },
         "google-java-format.extra-args": {
           "type": "string",
           "default": "",
