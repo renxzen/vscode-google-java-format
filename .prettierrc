@@ -1,0 +1,15 @@
+{
+	"eslintIntegration": true,
+	"printWidth": 80,
+	"singleQuote": false,
+	"jsxSingleQuote": false,
+	"useTabs": true,
+	"tabWidth": 4,
+	"semi": true,
+	"quoteProps": "as-needed",
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"arrowParens": "always",
+	"trailingComma": "es5",
+	"parser": "babel-ts"
+}

@@ -1,19 +1,35 @@
 {
     "root": true,
+    "extends": ["prettier"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint", "prettier"
     ],
     "rules": {
-        "@typescript-eslint/naming-convention": "warn",
-        "@typescript-eslint/semi": "warn",
-        "curly": "warn",
-        "eqeqeq": "warn",
-        "no-throw-literal": "warn",
-        "semi": "off"
-    }
+        "no-tabs": 0,
+		"indent": ["error", "tab"],
+		"quotes": ["error", "double"],
+		"object-curly-spacing": ["error", "always"],
+		"linebreak-style": ["error", "unix"],
+		"max-len": [
+			"error",
+			{
+				"code": 80,
+				"ignoreComments": true,
+				"ignoreRegExpLiterals": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true
+			}
+		],
+		"prettier/prettier": ["error"]
+    },
+    "ignorePatterns": [
+        "out",
+        "dist",
+        "**/*.d.ts"
+    ]
 }

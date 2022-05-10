@@ -1,20 +1,20 @@
 # google-java-format
 
-**FORK FROM ILKKA's REPO AND BUILD ON TOP: https://github.com/ilkka/vscode-google-java-format**
+**FORK FROM SERIKB's REPO AND BUILD ON TOP: https://github.com/serikb/vscode-google-java-format**
 
-This is yet another VS Code extension for running the google-java-format tool as a Java formatter. I could not make any of the others work for me, and I did not want to install an extension that will just run commands from random repositories on save. So, I wrote this, a super simple formatter provider that will just run the google-java-format script from e.g. Homebrew.
+This is another VS Code extension for running the google-java-format tool as a Java formatter. Serikb extension was working fine, he wrote this as a super simple formatter provider that will just run the google-java-format script from e.g. AUR or Homebrew. I made some configuration to add tabs instead of spaces, since i know people that preffer them. Since google-java-format doesn't provide this function, and i'm writing a lot of java lately, i had to make a quick hack.
 
-It should work as a formatter for only sections of files as well.
+Serikb: "It should work as a formatter for only sections of files as well."
 
 ## Features
 
 It provides a formatter for the Java language, meaning it runs google-java-format for you.
 
-Install google-java-format from e.g. Homebrew and set it as your Java formatter like:
+Install google-java-format from e.g. AUR or Homebrew and set it as your Java formatter like:
 
 ```json
 "[java]": {
-  "editor.defaultFormatter": "serikb.google-java-format",
+  "editor.defaultFormatter": "renxzen.google-java-format",
 }
 ```
 
@@ -24,13 +24,17 @@ Use the setting "google-java-format.executable-path" to set the path to the goog
 
 ## Known Issues
 
-Nothing right now.
+When its converting spaces to tabs, it could lead to lines having more than 140 char width
 
 ## Release Notes
 
+### 1.0.2
+
+Added spaces to tabs conversion
+
 ### 1.0.1
 
-Added ability to pass extra args via "google-java-format.extra-args"
+Added ability to pass extra args via "google-java-format.args"
 
 ### 1.0.0
 
