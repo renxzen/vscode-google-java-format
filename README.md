@@ -12,7 +12,7 @@ It provides a formatter for the Java language, meaning it runs google-java-forma
 
 ```json
 "[java]": {
-  "editor.defaultFormatter": "renxzen.google-java-format",
+  "editor.defaultFormatter": "renxzen.google-java-format-tabs",
 }
 ```
 
